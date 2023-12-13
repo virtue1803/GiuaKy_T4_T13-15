@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Candidates - Candidate Management</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>ID Candiate</td>
+                    <td>Candidate Name</td>
+                    <td>Candidate Phone</td>
+                    <td>Candidate Email</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody th:each="candidate : ${listCandidates}">
+                <tr>
+                    <td th:text="${candidate.id}"></td>
+                    <td th:text="${candidate.fullName}"></td>
+                    <td th:text="${candidate.phone}"></td>
+                    <td th:text="${candidate.email}"></td>
+                    <td>
+                        <form action="/view-detail" method="get">
+                            <input type="hidden" name="id" th:value="${candidate.id}">
+                            <button type="submit">View Detail</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

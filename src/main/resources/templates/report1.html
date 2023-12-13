@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Employee - Candidate Management</title>
+</head>
+<body>
+    <div>
+        <h1>Find Employee by Company</h1>
+        <form action="/findCompany" method="get">
+            <label>Input name company to find: </label>
+            <input name="companyName" type="text" placeholder="Name Company" required>
+            <button type="submit">Find Employee</button>
+        </form>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID Candidate</td>
+                        <td>Candidate Name</td>
+                        <td>Candidate Email</td>
+                        <td>Candidate Phone</td>
+                    </tr>
+                </thead>
+                <tbody th:each="candidate : ${listCandidatesByCompanyName}">
+                    <tr>
+                        <td th:text="${candidate.candidate.id}"></td>
+                        <td th:text="${candidate.candidate.fullName}"></td>
+                        <td th:text="${candidate.candidate.email}"></td>
+                        <td th:text="${candidate.candidate.phone}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

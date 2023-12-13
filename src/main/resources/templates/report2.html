@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Candidates With At Least 5 Years Experience - Candidate Management</title>
+</head>
+<body>
+    <h1>List Candidates With At Least 5 Years Experience</h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>ID Candidate</td>
+                    <td>Candidate Full Name</td>
+                    <td>Candidate Phone</td>
+                    <td>Company Name</td>
+                    <td>Roles</td>
+                </tr>
+            </thead>
+            <tbody th:each="experience : ${listExperiences}">
+                <tr>
+                    <td th:text="${experience.candidate.id}"></td>
+                    <td th:text="${experience.candidate.fullName}"></td>
+                    <td th:text="${experience.candidate.phone}"></td>
+                    <td th:text="${experience.companyName}"></td>
+                    <td th:text="${experience.roles}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
